@@ -13,14 +13,17 @@ function calcularSaldo(ingreso, gasto) {
     console.log("Tu saldo actual es: " + resta);
   }
   else if (Number1 < Number2) {
-    console.log("Tenes un saldo negativo de.");
-  } else {
+    console.log("Tienes un saldo negativo de.");
+  }
+  else {
     console.log("Tu ingreso y gastos son iguales.");
   }
 }
 
-function verificarcategoría(Categoría) {
+function clasificarGasto(Categoría) {
   while (Categoría !== "Alimentos" && Categoría !== "Transporte" && Categoría !== "Servicio Luz Gas y Agua" && Categoría !== "Alquiler" && Categoría !== "Entretenimiento" && Categoría !== "Combustible") {
+    console.log("La categoría ingresada no es válida");
+    Categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
   }
 
   if (Categoría === "Alimentos") {
