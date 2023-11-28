@@ -4,7 +4,7 @@ let gasto = prompt("Ingrese el monto de su gasto");
 
 let Categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
 
-function calcularSaldo(ingreso, gasto) {
+function calcularsaldo(ingreso, gasto) {
   let Number1 = parseFloat(ingreso);
   let Number2 = parseFloat(gasto);
   let resta = Number1 - Number2;
@@ -20,7 +20,7 @@ function calcularSaldo(ingreso, gasto) {
   }
 }
 
-function clasificarGasto(Categoría) {
+function clasificargasto(Categoría) {
   while (Categoría !== "Alimentos" && Categoría !== "Transporte" && Categoría !== "Servicio Luz Gas y Agua" && Categoría !== "Alquiler" && Categoría !== "Entretenimiento" && Categoría !== "Combustible") {
     console.log("La categoría ingresada no es válida");
     Categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
