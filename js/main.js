@@ -1,50 +1,60 @@
-let ingreso = prompt("Escriba su ingreso total a principio de mes");
+function calcularsaldo() {
+  //declaro variables
+  let ingreso = prompt("Escriba su ingreso total a principio de mes");
 
-let gasto = prompt("Ingrese el monto de su gasto");
+  let gasto = prompt("Ingrese el monto de su gasto");
 
-let Categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
+  let resta = ingreso - gasto;
 
-function calcularsaldo(ingreso, gasto) {
-  let Number1 = parseFloat(ingreso);
-  let Number2 = parseFloat(gasto);
-  let resta = Number1 - Number2;
-
-  if (Number1 > Number2) {
+  if (resta > 0) {
     console.log("Tu saldo actual es: " + resta);
-  }
-  else if (Number1 < Number2) {
-    console.log("Tienes un saldo negativo de.");
-  }
-  else {
+  } else if (resta < 0) {
+    console.log("Tienes un saldo negativo de " + Math.abs(resta));
+    //agrego Math.abs(resta) para que devuelva el valor absoluto de un número y quede correcto el mnsj
+  } else {
     console.log("Tu ingreso y gastos son iguales.");
   }
 }
+// Llamar a la función calcularsaldo()
+calcularsaldo();
 
-function clasificargasto(Categoría) {
-  while (Categoría !== "Alimentos" && Categoría !== "Transporte" && Categoría !== "Servicio Luz Gas y Agua" && Categoría !== "Alquiler" && Categoría !== "Entretenimiento" && Categoría !== "Combustible") {
+
+
+function clasificargasto() {
+//declaro variable
+  let categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
+
+//uso while para repetir una parte del código y al ingresar una categoria no válida no lo permita
+  while (categoría !== "Alimentos" && categoría !== "Transporte" && categoría !== "Servicio Luz Gas y Agua" && categoría !== "Alquiler" && categoría !== "Entretenimiento" && categoría !== "Combustible" && categoría !== "Otro") {
     console.log("La categoría ingresada no es válida");
-    Categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
+    categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
   }
 
-  if (Categoría === "Alimentos") {
+  if (categoría === "Alimentos") {
     console.log("Tu gasto pertenece a la categoría Alimentos");
   }
-  else if (Categoría === "Transporte") {
+  else if (categoría === "Transporte") {
     console.log("Tu gasto pertenece a la categoría Transporte");
   }
-  else if (Categoría === "Servicio Luz Gas y Agua") {
+  else if (categoría === "Servicio Luz Gas y Agua") {
     console.log("Tu gasto pertenece a la categoría Servicio Luz, Gas y Agua ");
   }
-  else if (Categoría === "Alquiler") {
+  else if (categoría === "Alquiler") {
     console.log("Tu gasto pertenece a la categoría Alquiler");
   }
-  else if (Categoría === "Entretenimiento") {
+  else if (categoría === "Entretenimiento") {
     console.log("Tu gasto pertenece a la categoría Entretenimiento");
   }
-  else if (Categoría === "Combustible") {
+  else if (categoría === "Combustible") {
     console.log("Tu gasto pertenece a la categoría Combustible");
+  }
+  else if (categoría === "Otro") {
+    console.log("Tu gasto pertenece a la categoría Otro");
   }
   else {
     console.log("Tu gasto no pertenece a ninguna categoría conocida");
   }
 }
+
+// Llamar a la función clasificargasto()
+clasificargasto();
