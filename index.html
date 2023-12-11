@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contador de gastos</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
-    
+    <h1>Contador de Gastos</h1>
+    <div class="container">
+        <form class="form">
+
+            <label for="Ingreso">Escriba su ingreso total a principio de mes</label>
+            <input type="number" id="ingreso" class="box">
+
+            <label for="gasto">Ingrese el monto de su gasto</label>
+            <input type="number" id="gasto" class="box">
+
+            <label for="categoría">Ingrese el nombre de la categoría a la que pertenece tu gasto</label>
+            <select id="categoría" class="box">
+                <option value="Alimentos">Alimentos</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Servicio Luz Gas y Agua">Servicio Luz Gas y Agua</option>
+                <option value="Alquiler">Alquiler</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+                <option value="Combustible">Combustible</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <input type="submit" value="Calcular" class="submit">
+
+        </form>
+
+        <div>
 
 
-    <script src="js/main.js"></script>
+            <script src="js/main.js"></script>
 </body>
+
 </html>

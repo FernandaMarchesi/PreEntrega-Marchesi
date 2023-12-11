@@ -1,3 +1,63 @@
-body{
-    background-color: black;
+body {
+    background-image: url(/multimedia/Fondo.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: 40px;
+    background-color: #FFEE00;
+    text-align: center;
+    margin-left: 350px;
+    margin-right: 350px;
+    border-radius: 25px;
+}
+
+.container {
+    display: flex;
+    background-color: #FFEE00;
+    height: 460px;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.form {
+    padding: 15px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.box {
+    border: 0;
+    background-color: #FAFFC0;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.submit {
+    background-color: #FAFFC0;
+    border: 0;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 25px;
+    width: 160px;
+    margin-top: 25px;
+    box-shadow: 0 0 20px black;
+}
+
+.submit:hover {
+    background-color: #FFEE00;
 }

@@ -22,7 +22,7 @@ calcularsaldo();
 
 function clasificargasto() {
 //declaro variable
-  let categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
+  let categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto (Alimentos, Transporte, Servicio Luz Gas y Agua, Alquiler, Entretenimiento, Combustible u Otro)");
 
 //uso while para repetir una parte del código y al ingresar una categoria no válida no lo permita
   while (categoría !== "Alimentos" && categoría !== "Transporte" && categoría !== "Servicio Luz Gas y Agua" && categoría !== "Alquiler" && categoría !== "Entretenimiento" && categoría !== "Combustible" && categoría !== "Otro") {
