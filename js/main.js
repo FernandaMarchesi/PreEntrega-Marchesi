@@ -22,7 +22,7 @@ function calcularsaldo() {
   return { saldo: resta, historialIngresos, historialGastos };
 }
 // Llamar a la función calcularsaldo()
-console.log(calcularsaldo());
+calcularsaldo();
 
 
 
@@ -76,4 +76,4 @@ function clasificargasto() {
 }
 
 // Llamar a la función clasificargasto()
-console.log(clasificargasto());
+clasificargasto();
