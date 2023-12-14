@@ -13,16 +13,16 @@ function calcularsaldo() {
     console.log("Tu ingreso y gastos son iguales.");
   }
 
-  let historialIngresos = [1000, 1500, 2000];
+  const historialIngresos = [60000, 80000, 100000];
   historialIngresos.push(ingreso); // Agregar el nuevo ingreso al historial
 
-  let historialGastos = [500, 700, 1000];
+  const historialGastos = [5000, 1000, 1500];
   historialGastos.push(gasto); // Agregar el nuevo gasto al historial
 
   return { saldo: resta, historialIngresos, historialGastos };
 }
 // Llamar a la función calcularsaldo()
-calcularsaldo();
+console.log(calcularsaldo());
 
 
 
@@ -76,4 +76,4 @@ function clasificargasto() {
 }
 
 // Llamar a la función clasificargasto()
-clasificargasto();
+console.log(clasificargasto());
