@@ -1,9 +1,7 @@
 function calcularsaldo() {
   //declaro variables
   let ingreso = prompt("Escriba su ingreso total a principio de mes");
-
   let gasto = prompt("Ingrese el monto de su gasto");
-
   let resta = ingreso - gasto;
 
   if (resta > 0) {
@@ -14,17 +12,26 @@ function calcularsaldo() {
   } else {
     console.log("Tu ingreso y gastos son iguales.");
   }
+
+  let historialIngresos = [1000, 1500, 2000];
+  historialIngresos.push(ingreso); // Agregar el nuevo ingreso al historial
+
+  let historialGastos = [500, 700, 1000];
+  historialGastos.push(gasto); // Agregar el nuevo gasto al historial
+
+  return { saldo: resta, historialIngresos, historialGastos };
 }
 // Llamar a la función calcularsaldo()
 calcularsaldo();
 
 
 
+
 function clasificargasto() {
-//declaro variable
+  //declaro variable
   let categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto (Alimentos, Transporte, Servicio Luz Gas y Agua, Alquiler, Entretenimiento, Combustible u Otro)");
 
-//uso while para repetir una parte del código y al ingresar una categoria no válida no lo permita
+  //uso while para repetir una parte del código y al ingresar una categoria no válida no lo permita
   while (categoría !== "Alimentos" && categoría !== "Transporte" && categoría !== "Servicio Luz Gas y Agua" && categoría !== "Alquiler" && categoría !== "Entretenimiento" && categoría !== "Combustible" && categoría !== "Otro") {
     console.log("La categoría ingresada no es válida");
     categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
@@ -53,6 +60,18 @@ function clasificargasto() {
   }
   else {
     console.log("Tu gasto no pertenece a ninguna categoría conocida");
+
+
+    let categoria = {
+      alimentos: "Alimentos",
+      transporte: "Transporte",
+      servicioluzgasyagua: "Servicio Luz Gas y Agua",
+      alquiler: "Alquiler",
+      entretenimiento: "Entretenimiento",
+      combustible: "Combustible",
+      otro: "Otro"
+    };
+
   }
 }
 
