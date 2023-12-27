@@ -61,3 +61,9 @@ label {
 .submit:hover {
     background-color: #FFEE00;
 }
+
+.resultado {
+    padding: 15px 50px;
+    display: flex;
+    flex-direction: column;
+}

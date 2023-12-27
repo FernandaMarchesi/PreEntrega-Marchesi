@@ -12,7 +12,7 @@
 <body>
     <h1>Contador de Gastos</h1>
     <div class="container">
-        <form class="form">
+        <form class="form" id="gastosForm">
 
             <label for="Ingreso">Escriba su ingreso total a principio de mes</label>
             <input type="number" id="ingreso" class="box">
@@ -35,10 +35,54 @@
 
         </form>
 
+        <div id="resultado">
+            <!-- Acá se va a mostrar el resultado -->
+        </div>
+
+        <div id="saldo">
+            <!-- Acá se va a mostrar el saldo -->
+        </div>
+
+        <ul id="historial">
+            <!-- Acá se va a mostrar el historial de cálculos -->
+        </ul>
         <div>
 
 
             <script src="js/main.js"></script>
+
+            <script>
+                // Evento
+                    document.getElementById('gastosForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Evitar que el formulario se envíe
+
+                    // Obtener los valores de ingreso, gasto y categoría
+                    let ingresoInput = document.getElementById('ingreso');
+                    let ingreso = parseFloat(ingresoInput.value);
+                    let gasto = parseFloat(document.getElementById('gasto').value);
+                    let categoria = document.getElementById('categoría').value;
+
+                    // Calcular el saldo
+                    let saldo = ingreso - gasto;
+
+                    // Mostrar el resultado en el campo de ingreso
+                    ingresoInput.value = saldo;
+
+                    // Mostrar el saldo en el elemento con el ID 'saldo'
+                    document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
+
+                    // Limpiar los campos del formulario
+                    document.getElementById('gasto').value = '';
+                    document.getElementById('categoría').value = '';
+
+                    // Agregar el cálculo al historial
+                    let historial = document.getElementById('historial');
+                    let nuevoItem = document.createElement('li');
+                    nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
+                    historial.appendChild(nuevoItem);
+                });
+            </script>
+
 </body>
 
 </html>
