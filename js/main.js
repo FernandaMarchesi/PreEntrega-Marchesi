@@ -77,3 +77,4 @@ function clasificargasto() {
 
 // Llamar a la función clasificargasto()
 clasificargasto();
+

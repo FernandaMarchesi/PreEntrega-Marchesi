@@ -12,48 +12,51 @@
 <body>
     <h1>Contador de Gastos</h1>
     <div class="container">
-        <form class="form" id="gastosForm">
 
-            <label for="Ingreso">Escriba su ingreso total a principio de mes</label>
-            <input type="number" id="ingreso" class="box">
+        <!-- Contenedor para el formulario -->
+        <div id="form-container">
+            <form class="form" id="gastosForm">
 
-            <label for="gasto">Ingrese el monto de su gasto</label>
-            <input type="number" id="gasto" class="box">
+                <label for="Ingreso">Escriba su ingreso total a principio de mes</label>
+                <input type="number" id="ingreso" class="box">
 
-            <label for="categoría">Ingrese el nombre de la categoría a la que pertenece tu gasto</label>
-            <select id="categoría" class="box">
-                <option value="Alimentos">Alimentos</option>
-                <option value="Transporte">Transporte</option>
-                <option value="Servicio Luz Gas y Agua">Servicio Luz Gas y Agua</option>
-                <option value="Alquiler">Alquiler</option>
-                <option value="Entretenimiento">Entretenimiento</option>
-                <option value="Combustible">Combustible</option>
-                <option value="Otro">Otro</option>
-            </select>
+                <label for="gasto">Ingrese el monto de su gasto</label>
+                <input type="number" id="gasto" class="box">
 
-            <input type="submit" value="Calcular" class="submit">
+                <label for="categoría">Ingrese el nombre de la categoría a la que pertenece tu gasto</label>
+                <select id="categoría" class="box">
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Servicio Luz Gas y Agua">Servicio Luz Gas y Agua</option>
+                    <option value="Alquiler">Alquiler</option>
+                    <option value="Entretenimiento">Entretenimiento</option>
+                    <option value="Combustible">Combustible</option>
+                    <option value="Otro">Otro</option>
+                </select>
 
-        </form>
+                <input type="submit" value="Calcular" class="submit">
 
-        <div id="resultado">
+            </form>
+        </div>
+
+        <div id="contenedorResultado">
             <!-- Acá se va a mostrar el resultado -->
+            <div id="resultado"></div>
+            <div id="saldo"></div>
         </div>
 
-        <div id="saldo">
-            <!-- Acá se va a mostrar el saldo -->
-        </div>
-
-        <ul id="historial">
+        <div id="historial-container">
             <!-- Acá se va a mostrar el historial de cálculos -->
-        </ul>
-        <div>
-
+            <ul id="historial"></ul>
+            <div>
+            </div>
 
             <script src="js/main.js"></script>
 
             <script>
-                // Evento
-                    document.getElementById('gastosForm').addEventListener('submit', function (event) {
+            
+            // Evento
+                document.getElementById('gastosForm').addEventListener('submit', function (event) {
                     event.preventDefault(); // Evitar que el formulario se envíe
 
                     // Obtener los valores de ingreso, gasto y categoría
@@ -68,7 +71,7 @@
                     // Mostrar el resultado en el campo de ingreso
                     ingresoInput.value = saldo;
 
-                    // Mostrar el saldo en el elemento con el ID 'saldo'
+                    // Mostrar el saldo en el contenedor de resultado
                     document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
 
                     // Limpiar los campos del formulario
@@ -81,7 +84,7 @@
                     nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
                     historial.appendChild(nuevoItem);
                 });
-            </script>
+                </script>
 
 </body>
 

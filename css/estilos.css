@@ -1,69 +1,120 @@
-body {
+body{
     background-image: url(/multimedia/Fondo.png);
     background-size: cover;
     background-attachment: fixed;
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
 }
 
 h1 {
     font-size: 40px;
     background-color: #FFEE00;
     text-align: center;
-    margin-left: 350px;
-    margin-right: 350px;
     border-radius: 25px;
+    margin-left: 325px;
+    margin-right: 325px;
 }
 
-.container {
+#contenedorPrincipal {
     display: flex;
+    justify-content: space-between;
+}
+
+/*contenedor formulario*/
+#form-container {
     background-color: #FFEE00;
-    height: 460px;
-    width: 600px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 20px;
+    height: 400px;
+    width: 550px;
+    margin: 20px;
+    margin-left: 60px;
     border-radius: 25px;
+    float: left;
 }
 
 .form {
-    padding: 15px 50px;
-    display: flex;
-    flex-direction: column;
+padding: 10px 50px;
+display: flex;
+flex-direction: column;
 }
 
+
 label {
-    font-size: 18px;
-    color: black;
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 5px;
+font-size: 18px;
+color: black;
+font-weight: 600;
+margin-top: 10px;
+margin-bottom: 5px;
 }
 
 .box {
-    border: 0;
-    background-color: #FAFFC0;
-    padding: 10px;
-    border-radius: 25px;
-    margin-bottom: 25px;
-    outline: none;
+border: 0;
+background-color: #FAFFC0;
+padding: 10px;
+border-radius: 25px;
+margin-bottom: 25px;
+outline: none;
 }
 
 .submit {
-    background-color: #FAFFC0;
-    border: 0;
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 25px;
-    width: 160px;
-    margin-top: 25px;
-    box-shadow: 0 0 20px black;
+background-color: #FAFFC0;
+border: 0;
+padding: 10px;
+font-size: 15px;
+border-radius: 25px;
+width: 160px;
+margin-top: 25px;
+box-shadow: 0 0 20px black;
 }
 
 .submit:hover {
-    background-color: #FFEE00;
+background-color: #FFEE00;
 }
 
-.resultado {
-    padding: 15px 50px;
-    display: flex;
-    flex-direction: column;
+
+/* Estilos para el contenedor de resultados */
+#contenedorResultado {
+    background-color: #FFEE00;
+    padding: 20px;
+    border-radius: 25px;
+    height: 30px;
+    width: 550px;
+    margin: 20px;
+    margin-right: 60px;
+    float: right;
 }
+
+#contenedorResultado #saldo{
+font-weight: bold;
+font-size: 18px;
+margin-left: 10px;
+}
+
+/* Estilos para el contenedor del historial */
+#historial-container {
+    background-color: #FFEE00;
+    padding: 20px;
+    border-radius: 25px;
+    height: 305px;
+    width: 550px;
+    margin: 20px;
+    margin-right: 60px;
+    margin-top: 5px;
+    float: right;
+    
+}
+
+#historial {
+margin-left: 5px;
+}
+
+#historial li {
+margin-bottom: 5px;
+font-size: 18px;
+color: black;
+font-weight: 600;
+margin-top: 10px;
+margin-bottom: 5px;
+}
+
+
