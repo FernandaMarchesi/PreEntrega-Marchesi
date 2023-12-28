@@ -53,38 +53,58 @@
 
             <script src="js/main.js"></script>
 
+
             <script>
-            
-            // Evento
-                document.getElementById('gastosForm').addEventListener('submit', function (event) {
-                    event.preventDefault(); // Evitar que el formulario se envíe
-
-                    // Obtener los valores de ingreso, gasto y categoría
-                    let ingresoInput = document.getElementById('ingreso');
-                    let ingreso = parseFloat(ingresoInput.value);
-                    let gasto = parseFloat(document.getElementById('gasto').value);
-                    let categoria = document.getElementById('categoría').value;
-
-                    // Calcular el saldo
-                    let saldo = ingreso - gasto;
-
-                    // Mostrar el resultado en el campo de ingreso
-                    ingresoInput.value = saldo;
-
-                    // Mostrar el saldo en el contenedor de resultado
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Recuperar el saldo almacenado en localStorage al cargar la página
+                    let saldo = parseFloat(localStorage.getItem('saldo')) || 0;
                     document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
 
-                    // Limpiar los campos del formulario
-                    document.getElementById('gasto').value = '';
-                    document.getElementById('categoría').value = '';
+                    // Evento
+                    document.getElementById('gastosForm').addEventListener('submit', function (event) {
+                        event.preventDefault(); // Evitar que el formulario se envíe
 
-                    // Agregar el cálculo al historial
-                    let historial = document.getElementById('historial');
-                    let nuevoItem = document.createElement('li');
-                    nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
-                    historial.appendChild(nuevoItem);
+                        // Obtener los valores de ingreso, gasto y categoría
+                        let ingresoInput = document.getElementById('ingreso');
+                        let gastoInput = document.getElementById('gasto');
+                        let categoriaInput = document.getElementById('categoría');
+
+                        // Validar que los campos no estén vacíos
+                        if (ingresoInput.value === '' || gastoInput.value === '') {
+                            alert('Por favor, ingrese valores válidos en los campos de ingreso y gasto.');
+                            return;
+                        }
+
+                        let ingreso = parseFloat(ingresoInput.value);
+                        let gasto = parseFloat(gastoInput.value);
+                        let categoria = categoriaInput.value;
+
+                        // Calcular el saldo
+                        saldo = ingreso - gasto;
+
+                        // Mostrar el resultado en el campo de ingreso
+                        ingresoInput.value = saldo;
+
+                        // Mostrar el saldo en el contenedor de resultado
+                        document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
+
+                        // Limpiar los campos del formulario
+                        gastoInput.value = '';
+                        categoriaInput.value = '';
+
+                        // Agregar el cálculo al historial
+                        let historial = document.getElementById('historial');
+                        let nuevoItem = document.createElement('li');
+                        nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
+                        historial.appendChild(nuevoItem);
+
+                        // Almacenar el nuevo saldo en localStorage
+                        localStorage.setItem('saldo', saldo.toString());
+                    });
                 });
-                </script>
+            </script>
+
+
 
 </body>
 
