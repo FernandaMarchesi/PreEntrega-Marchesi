@@ -7,6 +7,7 @@
     <title>Contador de Gastos</title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 </head>
 
 <body>
@@ -48,20 +49,13 @@
         <div id="historial-container">
             <!-- Acá se va a mostrar el historial de cálculos -->
             <ul id="historial"></ul>
-            <div>
-            </div>
+            <div></div>
 
             <script src="js/main.js"></script>
 
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Recuperar el saldo almacenado en localStorage al cargar la página
-                    let saldo = parseFloat(localStorage.getItem('saldo')) || 0;
-                    document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
-
-                    // Evento
-                    document.getElementById('gastosForm').addEventListener('submit', function (event) {
+                    <script>
+                        // Evento
+                        document.getElementById('gastosForm').addEventListener('submit', function (event) {
                         event.preventDefault(); // Evitar que el formulario se envíe
 
                         // Obtener los valores de ingreso, gasto y categoría
@@ -80,7 +74,7 @@
                         let categoria = categoriaInput.value;
 
                         // Calcular el saldo
-                        saldo = ingreso - gasto;
+                        let saldo = ingreso - gasto;
 
                         // Mostrar el resultado en el campo de ingreso
                         ingresoInput.value = saldo;
@@ -98,10 +92,28 @@
                         nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
                         historial.appendChild(nuevoItem);
 
+                        // Agregar botón de eliminar
+                        let btnEliminar = document.createElement('button');
+                        btnEliminar.textContent = 'Eliminar';
+                        btnEliminar.classList.add('eliminar'); // Agrega la clase 'eliminar'
+                        btnEliminar.addEventListener('click', function () {
+
+                        // Ajustar el saldo al eliminar el gasto
+                        saldo += gasto;
+                        ingresoInput.value = saldo;
+                        document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
+                        
+                        historial.removeChild(nuevoItem); // Eliminar el elemento del historial
+                    });
+
+                        nuevoItem.appendChild(btnEliminar);
+                        historial.appendChild(nuevoItem);
+
                         // Almacenar el nuevo saldo en localStorage
                         localStorage.setItem('saldo', saldo.toString());
+
                     });
-                });
+
             </script>
 
 

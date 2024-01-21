@@ -1,17 +1,12 @@
+// llamar a la función calcularsaldo()
+calcularsaldo()
+
 function calcularsaldo() {
   //declaro variables
-  let ingreso = prompt("Escriba su ingreso total a principio de mes");
-  let gasto = prompt("Ingrese el monto de su gasto");
-  let resta = ingreso - gasto;
+  let ingreso = parseFloat(prompt("Escriba su ingreso total a principio de mes"));
+  let gasto = parseFloat(prompt("Ingrese el monto de su gasto"));
+  let saldo = ingreso - gasto;
 
-  if (resta > 0) {
-    console.log("Tu saldo actual es: " + resta);
-  } else if (resta < 0) {
-    console.log("Tienes un saldo negativo de " + Math.abs(resta));
-    //agrego Math.abs(resta) para que devuelva el valor absoluto de un número y quede correcto el mnsj
-  } else {
-    console.log("Tu ingreso y gastos son iguales.");
-  }
 
   const historialIngresos = [60000, 80000, 100000];
   historialIngresos.push(ingreso); // Agregar el nuevo ingreso al historial
@@ -19,13 +14,32 @@ function calcularsaldo() {
   const historialGastos = [5000, 1000, 1500];
   historialGastos.push(gasto); // Agregar el nuevo gasto al historial
 
-  return { saldo: resta, historialIngresos, historialGastos };
+  // Mostrar mensaje con el saldo
+  const mensaje = saldo > 0
+    ? "Tu saldo actual es: " + saldo
+    : "Tu ingreso y gastos son iguales o negativos. Saldo actual: " + saldo;
+
+  console.log(mensaje);
+
+// Mostrar alerta si el saldo es igual o menor que cero
+if (saldo <= 0) {
+Swal.fire({
+  title: "Error!",
+  text: "No tienes suficiente dinero.",
+  imageUrl: "https://img.freepik.com/fotos-premium/gato-sorprendido-sobre-fondo-pastel-ilustracion-ai-generativo_118124-24023.jpg?w=740",
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: "Custom image"
+});
 }
-// Llamar a la función calcularsaldo()
-calcularsaldo();
 
+  // Devolver un objeto con información
+  return { saldo, historialIngresos, historialGastos };
 
+}
 
+// Llamar a la función clasificargasto()
+clasificargasto();
 
 function clasificargasto() {
   //declaro variable
@@ -37,44 +51,25 @@ function clasificargasto() {
     categoría = prompt("Ingrese el nombre de la categoría a la que pertenece tu gasto");
   }
 
-  if (categoría === "Alimentos") {
-    console.log("Tu gasto pertenece a la categoría Alimentos");
-  }
-  else if (categoría === "Transporte") {
-    console.log("Tu gasto pertenece a la categoría Transporte");
-  }
-  else if (categoría === "Servicio Luz Gas y Agua") {
-    console.log("Tu gasto pertenece a la categoría Servicio Luz, Gas y Agua ");
-  }
-  else if (categoría === "Alquiler") {
-    console.log("Tu gasto pertenece a la categoría Alquiler");
-  }
-  else if (categoría === "Entretenimiento") {
-    console.log("Tu gasto pertenece a la categoría Entretenimiento");
-  }
-  else if (categoría === "Combustible") {
-    console.log("Tu gasto pertenece a la categoría Combustible");
-  }
-  else if (categoría === "Otro") {
-    console.log("Tu gasto pertenece a la categoría Otro");
-  }
-  else {
-    console.log("Tu gasto no pertenece a ninguna categoría conocida");
+  const mensaje =
+    (categoría === "Alimentos" && "Tu gasto pertenece a la categoría Alimentos") ||
+    (categoría === "Transporte" && "Tu gasto pertenece a la categoría Transporte") ||
+    (categoría === "Servicio Luz Gas y Agua" && "Tu gasto pertenece a la categoría Servicio Luz, Gas y Agua") ||
+    (categoría === "Alquiler" && "Tu gasto pertenece a la categoría Alquiler") ||
+    (categoría === "Entretenimiento" && "Tu gasto pertenece a la categoría Entretenimiento") ||
+    (categoría === "Combustible" && "Tu gasto pertenece a la categoría Combustible") ||
+    (categoría === "Otro" && "Tu gasto pertenece a la categoría Otro") ||
+    "Tu gasto no pertenece a ninguna categoría conocida";
 
+  console.log(mensaje);
 
-    let categoria = {
-      alimentos: "Alimentos",
-      transporte: "Transporte",
-      servicioluzgasyagua: "Servicio Luz Gas y Agua",
-      alquiler: "Alquiler",
-      entretenimiento: "Entretenimiento",
-      combustible: "Combustible",
-      otro: "Otro"
-    };
-
-  }
+  let categoria = {
+    alimentos: "Alimentos",
+    transporte: "Transporte",
+    servicioluzgasyagua: "Servicio Luz Gas y Agua",
+    alquiler: "Alquiler",
+    entretenimiento: "Entretenimiento",
+    combustible: "Combustible",
+    otro: "Otro"
+  };
 }
-
-// Llamar a la función clasificargasto()
-clasificargasto();
-
