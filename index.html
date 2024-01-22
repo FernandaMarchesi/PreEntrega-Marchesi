@@ -53,69 +53,92 @@
 
             <script src="js/main.js"></script>
 
-                    <script>
-                        // Evento
-                        document.getElementById('gastosForm').addEventListener('submit', function (event) {
-                        event.preventDefault(); // Evitar que el formulario se envíe
 
-                        // Obtener los valores de ingreso, gasto y categoría
-                        let ingresoInput = document.getElementById('ingreso');
-                        let gastoInput = document.getElementById('gasto');
-                        let categoriaInput = document.getElementById('categoría');
+            <script>
+                // Evento
+                document.getElementById('gastosForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Evitar que el formulario se envíe
 
-                        // Validar que los campos no estén vacíos
-                        if (ingresoInput.value === '' || gastoInput.value === '') {
-                            alert('Por favor, ingrese valores válidos en los campos de ingreso y gasto.');
-                            return;
-                        }
+                    // Obtener los valores de ingreso, gasto y categoría
+                    let ingresoInput = document.getElementById('ingreso');
+                    let gastoInput = document.getElementById('gasto');
+                    let categoriaInput = document.getElementById('categoría');
 
-                        let ingreso = parseFloat(ingresoInput.value);
-                        let gasto = parseFloat(gastoInput.value);
-                        let categoria = categoriaInput.value;
+                    // Validar que los campos no estén vacíos
+                    if (ingresoInput.value === '' || gastoInput.value === '') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Por favor, ingrese valores válidos en los campos de ingreso y gasto.'
+                        });
+                        return;
+                    }
 
-                        // Calcular el saldo
-                        let saldo = ingreso - gasto;
+                    let ingreso = parseFloat(ingresoInput.value);
+                    let gasto = parseFloat(gastoInput.value);
+                    let categoria = categoriaInput.value;
 
-                        // Mostrar el resultado en el campo de ingreso
-                        ingresoInput.value = saldo;
+                    // Calcular el saldo
+                    let saldo = ingreso - gasto;
 
-                        // Mostrar el saldo en el contenedor de resultado
-                        document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
+                    // Verificar que el saldo no sea negativo
 
-                        // Limpiar los campos del formulario
-                        gastoInput.value = '';
-                        categoriaInput.value = '';
+                    if (saldo < 0) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'No tienes suficiente dinero.',
+                            imageUrl: "https://img.freepik.com/fotos-premium/gato-sorprendido-sobre-fondo-pastel-ilustracion-ai-generativo_118124-24023.jpg?w=740",
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: "Custom image"
+                        });
+                        return
+                    }
 
-                        // Agregar el cálculo al historial
-                        let historial = document.getElementById('historial');
-                        let nuevoItem = document.createElement('li');
-                        nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
-                        historial.appendChild(nuevoItem);
+                    // Mostrar el resultado en el campo de ingreso
+                    ingresoInput.value = saldo;
 
-                        // Agregar botón de eliminar
-                        let btnEliminar = document.createElement('button');
-                        btnEliminar.textContent = 'Eliminar';
-                        btnEliminar.classList.add('eliminar'); // Agrega la clase 'eliminar'
-                        btnEliminar.addEventListener('click', function () {
+                    // Mostrar el saldo en el contenedor de resultado
+                    document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
 
+                    // Limpiar los campos del formulario
+                    gastoInput.value = '';
+                    categoriaInput.value = '';
+
+                    // Agregar el cálculo al historial
+                    let historial = document.getElementById('historial');
+                    let nuevoItem = document.createElement('li');
+                    nuevoItem.textContent = 'Tu gasto en ' + categoria + ' es de: ' + gasto;
+
+                    // Agregar botón de eliminar
+                    let btnEliminar = document.createElement('button');
+                    btnEliminar.textContent = 'Eliminar';
+                    btnEliminar.classList.add('eliminar'); // Agrega la clase 'eliminar'
+                    btnEliminar.addEventListener('click', function () {
                         // Ajustar el saldo al eliminar el gasto
                         saldo += gasto;
                         ingresoInput.value = saldo;
                         document.getElementById('saldo').innerHTML = 'Saldo actual: ' + saldo;
-                        
+
                         historial.removeChild(nuevoItem); // Eliminar el elemento del historial
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Gasto eliminado',
+                            text: 'Se ha eliminado correctamente el gasto.'
+                        });
                     });
 
-                        nuevoItem.appendChild(btnEliminar);
-                        historial.appendChild(nuevoItem);
+                    // Añadir el botón de eliminar al elemento del historial
+                    nuevoItem.appendChild(btnEliminar);
 
-                        // Almacenar el nuevo saldo en localStorage
-                        localStorage.setItem('saldo', saldo.toString());
+                    // Añadir el elemento al historial
+                    historial.appendChild(nuevoItem);
 
-                    });
-
+                    // Almacenar el nuevo saldo en localStorage
+                    localStorage.setItem('saldo', saldo.toString());
+                });
             </script>
-
 
 
 </body>

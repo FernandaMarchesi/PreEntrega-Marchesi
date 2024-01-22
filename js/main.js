@@ -1,5 +1,5 @@
-// llamar a la función calcularsaldo()
-calcularsaldo()
+// llamar a la función calcularsaldo() y almacenar los resultados en una variable
+const resultadosSaldo = calcularsaldo()
 
 function calcularsaldo() {
   //declaro variables
@@ -21,25 +21,19 @@ function calcularsaldo() {
 
   console.log(mensaje);
 
-// Mostrar alerta si el saldo es igual o menor que cero
-if (saldo <= 0) {
-Swal.fire({
-  title: "Error!",
-  text: "No tienes suficiente dinero.",
-  imageUrl: "https://img.freepik.com/fotos-premium/gato-sorprendido-sobre-fondo-pastel-ilustracion-ai-generativo_118124-24023.jpg?w=740",
-  imageWidth: 400,
-  imageHeight: 200,
-  imageAlt: "Custom image"
-});
-}
 
   // Devolver un objeto con información
   return { saldo, historialIngresos, historialGastos };
 
 }
 
-// Llamar a la función clasificargasto()
-clasificargasto();
+// Llamar a la función clasificargasto() con los resultados de calcularsaldo() 
+clasificargasto(resultadosSaldo);
+
+// Utilizar los resultados de calcularsaldo()
+const saldo = resultadosSaldo.saldo;
+const historialIngresos = resultadosSaldo.historialIngresos;
+const historialGastos = resultadosSaldo.historialGastos;
 
 function clasificargasto() {
   //declaro variable
@@ -63,13 +57,4 @@ function clasificargasto() {
 
   console.log(mensaje);
 
-  let categoria = {
-    alimentos: "Alimentos",
-    transporte: "Transporte",
-    servicioluzgasyagua: "Servicio Luz Gas y Agua",
-    alquiler: "Alquiler",
-    entretenimiento: "Entretenimiento",
-    combustible: "Combustible",
-    otro: "Otro"
-  };
 }
