@@ -1,3 +1,16 @@
+function iniciarApp() {
+  // Llamar a la función calcularsaldo() y almacenar los resultados en una variable
+  const resultadosSaldo = calcularsaldo();
+
+  // Llamar a la función clasificargasto() con los resultados de calcularsaldo() 
+  clasificargasto(resultadosSaldo);
+
+  // Utilizar los resultados de calcularsaldo()
+  const saldo = resultadosSaldo.saldo;
+  const historialIngresos = resultadosSaldo.historialIngresos;
+  const historialGastos = resultadosSaldo.historialGastos;
+}
+
 // llamar a la función calcularsaldo() y almacenar los resultados en una variable
 const resultadosSaldo = calcularsaldo()
 
@@ -58,3 +71,6 @@ function clasificargasto() {
   console.log(mensaje);
 
 }
+
+// Llamar a la función iniciarApp cuando estés listo para comenzar la aplicación
+iniciarApp();
