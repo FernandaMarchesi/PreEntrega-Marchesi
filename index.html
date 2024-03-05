@@ -19,10 +19,10 @@
         <div id="form-container">
             <form class="form" id="gastosForm">
 
-                <label for="Ingreso">Escriba su ingreso total a principio de mes</label>
+                <label for="Ingreso">Escriba su ingreso total a principio de mes:</label>
                 <input type="number" id="ingreso" class="box">
 
-                <label for="gasto">Ingrese el monto de su gasto</label>
+                <label for="gasto">Ingrese el monto de su gasto:</label>
                 <input type="number" id="gasto" class="box">
 
                 <label for="categoría">Ingrese el nombre de la categoría a la que pertenece tu gasto</label>
@@ -139,33 +139,9 @@
 
                         // Almacenar el nuevo saldo en localStorage
                         localStorage.setItem('saldo', saldo.toString());
-
-                        // Actualizar el archivo JSON local
-                        let historialData = JSON.parse(localStorage.getItem('historialData')) || { saldo: 0, historial: [] };
-                        historialData.saldo = saldo;
-                        historialData.historial.push({ categoria: categoria, monto: gasto });
-
-                        localStorage.setItem('historialData', JSON.stringify(historialData));
                     });
-
-                    // Cargar datos desde el archivo JSON local
-                    let historialData = JSON.parse(localStorage.getItem('historialData')) || { saldo: 0, historial: [] };
-                    document.getElementById('resultado').textContent = 'Datos cargados desde JSON: ' + JSON.stringify(historialData);
                 });
-            </script>
-
-            <script>
-                fetch("datos.json")
-                    .then((res) => {
-                        return res.json()
-                    })
-                    .then((historialData) => {
-                        console.log(historialData);
-                    })
-                    .catch((err) => { console.log(err) });
-            </script>
-
-
+</script>
 
 </body>
 

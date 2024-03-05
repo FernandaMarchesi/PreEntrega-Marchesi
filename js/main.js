@@ -15,11 +15,19 @@ function iniciarApp() {
 const resultadosSaldo = calcularsaldo()
 
 function calcularsaldo() {
-  //declaro variables
-  let ingreso = parseFloat(prompt("Escriba su ingreso total a principio de mes"));
-  let gasto = parseFloat(prompt("Ingrese el monto de su gasto"));
-  let saldo = ingreso - gasto;
+  document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    let ingreso = parseFloat(document.getElementById('ingreso').value);
+    let gasto = parseFloat(document.getElementById('gasto').value);
+
+    if (isNaN(ingreso) || isNaN(gasto)) {
+        document.getElementById('resultado').textContent = "Por favor, ingrese valores numéricos válidos.";
+    } else {
+        let saldo = ingreso - gasto;
+        document.getElementById('resultado').textContent = "Su saldo es: " + saldo;
+    }
+});
 
   const historialIngresos = [60000, 80000, 100000];
   historialIngresos.push(ingreso); // Agregar el nuevo ingreso al historial
