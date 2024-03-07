@@ -1,8 +1,8 @@
-body{
+body {
     background-image: url(/multimedia/fondo2.png);
     background-size: cover;
     background-attachment: fixed;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
 }
 
@@ -13,6 +13,31 @@ h1 {
     border-radius: 25px;
     margin-left: 325px;
     margin-right: 325px;
+}
+
+p {
+    font-size: 20px;
+    background-color: #FFEE00;
+    text-align: center;
+    border-radius: 25px;
+    margin-left: 325px;
+    margin-right: 325px;
+
+}
+
+.navbar-brand {
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    float: right;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.nav-item:hover {
+    color:  #FFEE00;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 #contenedorPrincipal {
@@ -27,48 +52,48 @@ h1 {
     height: 400px;
     width: 550px;
     margin: 20px;
-    margin-left: 60px;
+    margin-left: 10px;
     border-radius: 25px;
     float: left;
 }
 
 .form {
-padding: 10px 50px;
-display: flex;
-flex-direction: column;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 
 label {
-font-size: 18px;
-color: black;
-font-weight: 600;
-margin-top: 10px;
-margin-bottom: 5px;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .box {
-border: 0;
-background-color: #FAFFC0;
-padding: 10px;
-border-radius: 25px;
-margin-bottom: 25px;
-outline: none;
+    border: 0;
+    background-color: #FAFFC0;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    outline: none;
 }
 
 .submit {
-background-color: #FAFFC0;
-border: 0;
-padding: 10px;
-font-size: 15px;
-border-radius: 25px;
-width: 160px;
-margin-top: 25px;
-box-shadow: 0 0 20px black;
+    background-color: #FAFFC0;
+    border: 0;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 25px;
+    width: 160px;
+    margin-top: 25px;
+    box-shadow: 0 0 20px black;
 }
 
 .submit:hover {
-background-color: #FFEE00;
+    background-color: #FFEE00;
 }
 
 
@@ -84,10 +109,10 @@ background-color: #FFEE00;
     float: right;
 }
 
-#contenedorResultado #saldo{
-font-weight: bold;
-font-size: 18px;
-margin-left: 10px;
+#contenedorResultado #saldo {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
 }
 
 /* Estilos para el contenedor del historial */
@@ -101,36 +126,68 @@ margin-left: 10px;
     margin-top: 5px;
     margin-right: 60px;
     float: right;
-    
+
 }
 
 #historial {
-margin-left: 5px;
+    margin-left: 5px;
 }
 
 #historial li {
-margin-bottom: 5px;
-font-size: 16px;
-color: black;
-font-weight: 600;
-margin-top: 10px;
-margin-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 /*estilo para el botòn eliminar del historial */
 
 button.eliminar {
-background-color: #FAFFC0;
-border: 0;
-padding: 5px;
-font-size: 11px;
-border-radius: 25px;
-width: 65px;
-margin-top: 5px;
-box-shadow: 0 0 10px black;
-margin-left: 10px;
+    background-color: #FAFFC0;
+    border: 0;
+    padding: 5px;
+    font-size: 11px;
+    border-radius: 25px;
+    width: 65px;
+    margin-top: 5px;
+    box-shadow: 0 0 10px black;
+    margin-left: 10px;
 }
 
 button.eliminar:hover {
-background-color: #FFEE00;
+    background-color: #FFEE00;
+}
+
+/*contenedor de conversor de divisas*/
+.container2{
+    background-color: #FFEE00;
+    padding: 20px;
+    height: 250px;
+    width: 550px;
+    border-radius: 25px;
+    float: center;
+    margin: 0 auto;
+    line-height: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.btn{
+    background-color: #FAFFC0;
+    border: 0;
+    padding: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 70px;
+    margin-top: 5px;
+    margin-bottom:5px ;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #FFEE00;
 }
